@@ -27,9 +27,9 @@
     }
 
     // Do I need this?
-    cp = getUserInfo().then(cp => cp);
-    console.log(cp);
-    document.body.innerHTML = "<p>You are " + cp + "</p>"
+    var user = await getUserInfo();
+    console.log(user);
+    document.body.innerHTML = "<p>You are " + user.userDetails + "</p>"
     getUserInfo2();
   </script>
   <main>
