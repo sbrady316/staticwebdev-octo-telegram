@@ -24,11 +24,16 @@
       fetch('/.auth/me')
       .then(r => r.text())
       .then(t => console.log(t));
+      
+      return t;
     }
 
-    var user = null;
-    getUserInfo().then(u => {user = u;});
-    document.body.innerHTML = "<p>You are " + user.userDetails + "</p>"
+    async function main() {
+      var user = await getUserInfo();
+      document.body.innerHTML = "<p>You are " + user.userDetails + "</p>"
+    }
+
+    main()
     getUserInfo2();
   </script>
   <main>
