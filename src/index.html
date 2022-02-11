@@ -18,8 +18,10 @@
     return clientPrincipal;
   }
 
-  console.log(await getUserInfo());
-  document.body.innerHTML = "<p>You are " + await getUserInfo() + "</p>"
+  // Do I need this?
+  cp = getUserInfo().then(cp => cp);
+  console.log(cp);
+  document.body.innerHTML = "<p>You are " + cp + "</p>"
   </script>
   <main>
     <h1>Authenticator 5000</h1>
