@@ -26,9 +26,7 @@
       .then(t => console.log(t));
     }
 
-    // Do I need this?
-    var user = await getUserInfo();
-    console.log(user);
+    var user = getUserInfo().then(u => u);
     document.body.innerHTML = "<p>You are " + user.userDetails + "</p>"
     getUserInfo2();
   </script>
