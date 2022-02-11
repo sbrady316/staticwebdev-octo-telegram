@@ -5,39 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <title>Authenticator 5000</title>
 </head>
 <body>
+  <script src="index.js"></script>
   <script>
-    async function getUserInfo() {
-      const response = await fetch('/.auth/me');
-      console.log(`getUserInfo():response = ${response}`);
-      const payload = await response.json();
-      console.log(`getUserInfo():payload = ${payload}`);
-      console.log(`payload.userDetails = ${payload.userDetails}`);
-      const { clientPrincipal } = payload;
-      console.log(`getUserInfo():clientPrincipal = ${clientPrincipal}`);
-      return clientPrincipal;
-    }
-
-    function getUserInfo2() {
-      fetch('/.auth/me')
-      .then(r => r.text())
-      .then(t => console.log(t));
-      
-      return t;
-    }
-
-    async function main() {
-      var user = await getUserInfo();
-      document.body.innerHTML = "<p>You are " + user.userDetails + "</p>"
-    }
-
-    main()
-    getUserInfo2();
   </script>
   <main>
     <h1>Authenticator 5000</h1>
+    <table>
+      <tr><th>Source</th><th>Info</th></tr>
+      <tr><td>Client</td><td id="clientUserInfo"></td></tr>
+      <tr><td>Server</td><td id="serverUserInfo"></td></tr>
+    </table>
+    <a href="/.auth/logout">logout</a>
   </main>
 </body>
 
