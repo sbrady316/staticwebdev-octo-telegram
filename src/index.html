@@ -9,20 +9,28 @@
 </head>
 <body>
   <script>
-  async function getUserInfo() {
-    const response = await fetch('/.auth/me');
-    console.log(`response = ${response}`);
-    const payload = await response.json();
-    console.log(`payload = ${payload}`);
-    const { clientPrincipal } = payload;
-    console.log(`clientPrincipal = ${clientPrincipal}`);
-    return clientPrincipal;
-  }
+    async function getUserInfo() {
+      const response = await fetch('/.auth/me');
+      console.log(`getUserInfo():response = ${response}`);
+      const payload = await response.json();
+      console.log(`getUserInfo():payload = ${payload}`);
+      console.log(`payload.userDetails = ${payload.userDetails}`);
+      const { clientPrincipal } = payload;
+      console.log(`getUserInfo():clientPrincipal = ${clientPrincipal}`);
+      return clientPrincipal;
+    }
 
-  // Do I need this?
-  cp = getUserInfo().then(cp => cp);
-  console.log(cp);
-  document.body.innerHTML = "<p>You are " + cp + "</p>"
+    function getUserInfo2() {
+      fetch('/.auth/me')
+      .then(r => r.text())
+      .then(t => console.log(t));
+    }
+
+    // Do I need this?
+    cp = getUserInfo().then(cp => cp);
+    console.log(cp);
+    document.body.innerHTML = "<p>You are " + cp + "</p>"
+    getUserInfo2();
   </script>
   <main>
     <h1>Authenticator 5000</h1>
