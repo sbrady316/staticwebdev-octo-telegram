@@ -26,7 +26,8 @@
       .then(t => console.log(t));
     }
 
-    var user = getUserInfo().then(u => u);
+    var user = null;
+    getUserInfo().then(u => {user = u;});
     document.body.innerHTML = "<p>You are " + user.userDetails + "</p>"
     getUserInfo2();
   </script>
