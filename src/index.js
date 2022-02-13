@@ -9,6 +9,7 @@ async function getClientUserInfo() {
 
 async function getServerUserInfo() {
     const { text } = await( await fetch(`/api/AuthInfo`)).text();
+    console.log(text);
 
     return text;
 }
