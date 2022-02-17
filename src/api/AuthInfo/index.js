@@ -8,7 +8,7 @@ module.exports = async function (context, req) {
     {
         const encoded = Buffer.from(header, 'base64');
         const decoded = encoded.toString('ascii');
-        principal: JSON.parse(decoded);
+        principal = JSON.parse(decoded);
     }
     else
     {
