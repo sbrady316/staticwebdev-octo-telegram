@@ -8,10 +8,13 @@ async function getClientUserInfo() {
 }
 
 async function getServerUserInfo() {
-    const { text } = await( await fetch(`/api/AuthInfo`)).text();
-    console.log(text);
+    // const { text } = await( await fetch(`/api/AuthInfo`)).text();
+    const response = await fetch('/api/AuthInfo');
+    const rt = await response.text();
+    console.log(`User Info: ${rt}`);
 
-    return text;
+//    const { clientPrincipal } = JSON.parse(rt);
+    return rt;
 }
 
 async function updateElement(elementName, infoProvider) {
