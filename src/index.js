@@ -16,7 +16,7 @@ async function getServerUserInfo() {
 
 async function updateElement(elementName, infoProvider) {
     var user = await infoProvider();
-    console.log(`Going to update element ${elementName}`);
+    console.log(`Going to update element ${elementName} with ${user}`);
     var element = document.getElementById(elementName);
     console.log(element);
     element.innerText = user.userDetails;
