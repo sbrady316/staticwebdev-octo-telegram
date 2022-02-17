@@ -4,7 +4,7 @@ async function getClientUserInfo() {
     console.log(`User Info: ${rt}`);
 
     const { clientPrincipal } = JSON.parse(rt);
-    return clientPrincipal;
+    return rt;
 }
 
 async function getServerUserInfo() {
@@ -19,7 +19,7 @@ async function updateElement(elementName, infoProvider) {
     console.log(`Going to update element ${elementName} with ${JSON.stringify(user)}`);
     var element = document.getElementById(elementName);
     console.log(element);
-    element.innerText = user.userDetails;
+    element.innerText = user;
 }
 
 updateElement("clientUserInfo", getClientUserInfo);
